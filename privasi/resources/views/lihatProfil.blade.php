@@ -1,87 +1,66 @@
 @extends('template.t_admin')
 @section('content')
 <h1>Edit Profile</h1>
-<form id="your-profile" action="{{URL::to('/updateProfil')}}" method="post" novalidate="novalidate">
+<form id="your-profile" novalidate="novalidate">
 {{ csrf_field() }}
 @foreach ($result as $anggota)
 <table class="form-table">
 	<tbody><tr class="user-user-login-wrap">
 		<th><label for="user_login">Nama</label></th>
-		<td><input name="nama" id="user_login"  class="regular-text" type="text" value="<?php {{ echo $anggota->nama; }} ?>"> </td>
+		<td><label for="user_login">: <?php {{ echo $anggota->nama; }} ?></label> </td>
 	</tr>
 
 
 <tr class="user-first-name-wrap">
 	<th><label for="first_name">NRP</label></th>
-	<td><input name="NRP" id="first_name" class="regular-text" type="text" value="<?php {{ echo $anggota->NRP; }} ?>"></td>
+	<td><label for="user_login">: <?php {{ echo $anggota->NRP; }} ?></label></td>
 </tr>
 
 <tr class="user-last-name-wrap">
 	<th><label for="last_name">Jurusan</label></th>
-	<td><input name="jurusan" id="last_name" class="regular-text" type="text" value="<?php {{ echo $anggota->jurusan; }} ?>"></td>
+	<td><label for="user_login">: <?php {{ echo $anggota->jurusan; }} ?></label></td>
 </tr>
 
 
 <tr class="user-nickname-wrap">
 	<th><label for="nickname">Tgl Lahir</label></th>
-	<td><input name="tanggal" id="nickname"  class="regular-text" type="date" value="<?php {{ echo $anggota->tanggal; }} ?>"></td>
+	<td><label for="user_login">: <?php {{ echo $anggota->tanggal; }} ?></label></td>
 </tr>
 <tr class="user-nickname-wrap">
 	<th><label for="nickname">Alamat Asal</label></th>
-	<td><input name="alamatasli" id="nickname"  class="regular-text" type="text" value="<?php {{ echo $anggota->alamatasli; }} ?>"></td>
+	<td><label for="user_login">: <?php {{ echo $anggota->alamatasli; }} ?></label></td>
 </tr>
 <tr class="user-nickname-wrap">
 	<th><label for="nickname">Alamat Surabaya</label></th>
-	<td><input name="alamatsurabaya" id="nickname"  class="regular-text" type="text" value="<?php {{ echo $anggota->alamatsurabaya; }} ?>"></td>
+	<td><label for="user_login">: <?php {{ echo $anggota->alamatsurabaya; }} ?></label></td>
 </tr>
 <tr class="user-nickname-wrap">
 	<th><label for="nickname">Email</label></th>
-	<td><input name="email" id="nickname"  class="regular-text" type="text" value="<?php {{ echo $anggota->email; }} ?>"></td>
+	<td><label for="user_login">: <?php {{ echo $anggota->email; }} ?></label></td>
 </tr>
 <tr class="user-nickname-wrap">
 	<th><label for="nickname">No.Hp</label></th>
-	<td><input name="telepon" id="nickname"  class="regular-text" type="text" value="<?php {{ echo $anggota->telepon; }} ?>"></td>
+	<td><label for="user_login">: <?php {{ echo $anggota->telepon; }} ?></label></td>
 </tr>
 
 <tr class="user-nickname-wrap">
 	<th><label for="nickname">Keanggotaan</label></th>
 	<td>
 		
-		<select name="keanggotaan" id="display_name">
-					<option ><?php {{ echo $anggota->keanggotaan; }} ?></option>
-					<option value="Anggota">Anggoat</option>
-					<option value="Pengurus">Pengurus</option>
-					<option value="Alumni">Alumni</option>
-					<option value="Admin">Admin</option>
-					
-				</select>
+		<label for="user_login">: <?php {{ echo $anggota->keanggotaan; }} ?></label>
 	</td>
 </tr>
 <tr class="user-nickname-wrap">
 	<th><label for="nickname">Status Keanggotaan</label></th>
 	<td>
-		
-		<select name="status" id="display_name">
-					<option ><?php {{ echo $anggota->status; }} ?></option>
-					<option value="Aktif">Aktif</option>
-					<option value="Non-Aktif">Non-Aktif</option>
-					
-					
-				</select>
+		<label for="user_login">: <?php {{ echo $anggota->status; }} ?></label>
 	</td>
 </tr>
-<tr class="user-nickname-wrap">
-	<th><label for="nickname">Password</label></th>
-	<td><input name="passwd" id="nickname"  class="regular-text" type="password"></td>
-</tr>
-</tbody></table>
 
+</tbody></table>
+<p class="submit"><a href="{{URL::to('/edit')}}/<?php {{ echo $anggota->NRP; }} ?>"  class="button button-primary" >Edit Profil</a></p>
 
 @endforeach
-<input name="action" value="update" type="hidden">
-<input name="user_id" id="user_id" value="1" type="hidden">
-
-<p class="submit"><input name="submit" id="submit" class="button button-primary" value="Update Profile" type="submit"></p>
 </form>
 
 	</div>	
